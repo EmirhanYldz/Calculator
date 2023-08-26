@@ -45,15 +45,59 @@ namespace Calculator
             resultTextBox.Text = "";
         }
 
+        private void Calculate(String type)
+        {
+            if (type.Equals("+"))
+            {
+                result += Convert.ToDouble(currentNumber);
+                currentNumber = ""; 
+                resultTextBox.Text = Convert.ToString(result);
+            }
+
+            if (type.Equals("-"))
+            {
+                result -= Convert.ToDouble(currentNumber);
+                currentNumber = ""; 
+                resultTextBox.Text = Convert.ToString(result);  
+            }
+
+            if (type.Equals("*"))
+            {
+                result = result * Convert.ToDouble(currentNumber);
+                currentNumber = ""; 
+                resultTextBox.Text = Convert.ToString(result);  
+            }
+
+            if (type.Equals("/"))
+            {
+                result = result / Convert.ToDouble(currentNumber);
+                currentNumber = ""; 
+                resultTextBox.Text = Convert.ToString(result);  
+            }
+        }
+
         private void SumButton_Click(object sender, RoutedEventArgs e)
         {
             if (currentNumber.Equals(""))
             {
                 return;
             }
-            result += Convert.ToDouble(currentNumber);
-            currentNumber = ""; 
-            resultTextBox.Text = Convert.ToString(result);
+
+            if (result == 0)
+            {
+                result = Convert.ToDouble(currentNumber);
+                currentNumber = ""; 
+                resultTextBox.Text = Convert.ToString(result);
+                currentOperator = "+";
+                return;
+            }
+
+            if (!currentOperator.Equals(""))
+            {
+                Calculate(currentOperator);
+            }
+            currentOperator = "+";
+            
         }
 
 
@@ -63,9 +107,165 @@ namespace Calculator
             {
                 return;
             }
-            result -= Convert.ToDouble(currentNumber);
+
+            if (result == 0)
+            {
+                result = Convert.ToDouble(currentNumber);
+                currentNumber = ""; 
+                resultTextBox.Text = Convert.ToString(result);
+                currentOperator = "-";
+                return;
+            }
+            
+            if (!currentOperator.Equals(""))
+            {
+                Calculate(currentOperator);
+            }
+            currentOperator = "-";
+            
+        }
+
+        private void MltpButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentNumber.Equals(""))
+            {
+                return;
+            }
+
+            if (result == 0)
+            {
+                result = (Convert.ToDouble(currentNumber));
+                currentNumber = ""; 
+                resultTextBox.Text = Convert.ToString(result);
+                currentOperator = "*";
+                return;
+            }
+            
+            if (!currentOperator.Equals(""))
+            {
+                Calculate(currentOperator);
+            }
+            currentOperator = "*";
+        }
+
+        private void DvdButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentNumber.Equals(""))
+            {
+                return;
+            }
+
+            if (result == 0)
+            {
+                result = (Convert.ToDouble(currentNumber));
+                currentNumber = ""; 
+                resultTextBox.Text = Convert.ToString(result);
+                currentOperator = "/";
+                return;
+            }
+            
+            if (!currentOperator.Equals(""))
+            {
+                Calculate(currentOperator);
+            }
+            currentOperator = "/";
+        }
+
+        private void ResultButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentNumber.Equals(""))
+            {
+                return;
+            }
+            if (!currentOperator.Equals(""))
+            {
+                Calculate(currentOperator);
+            }
+
+            currentNumber = "";
+            currentOperator = "";
+            result = 0;
+            
+        }
+
+        private void SqrButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentNumber.Equals("") && !currentOperator.Equals(""))
+            {
+                return;
+            }
+
+            if (result == 0)
+            {
+                result = Math.Pow(Convert.ToDouble(currentNumber),0.5);
+                currentNumber = ""; 
+                resultTextBox.Text = Convert.ToString(result);
+                currentOperator = "";
+                return;
+            }
+            
+            
+            if (!currentOperator.Equals(""))
+            {
+                Calculate(currentOperator);
+            }
+            
+            result = Math.Pow(result,0.5);
             currentNumber = ""; 
             resultTextBox.Text = Convert.ToString(result);
+            currentOperator = "";
+            
+        }
+
+        private void PowButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentNumber.Equals("") && !currentOperator.Equals(""))
+            {
+                return;
+            }
+
+            if (result == 0)
+            {
+                result = Math.Pow(Convert.ToDouble(currentNumber),2);
+                currentNumber = ""; 
+                resultTextBox.Text = Convert.ToString(result);
+                currentOperator = "";
+                return;
+            }
+            
+            
+            if (!currentOperator.Equals(""))
+            {
+                Calculate(currentOperator);
+            }
+            
+            result = Math.Pow(result,2);
+            currentNumber = ""; 
+            resultTextBox.Text = Convert.ToString(result);
+            currentOperator = "";
+        }
+
+        private void AbsButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentNumber.Equals("") && !currentOperator.Equals(""))
+            {
+                return;
+            }
+
+            if (result == 0)
+            {
+                return;
+            }
+            
+            if (!currentOperator.Equals(""))
+            {
+                Calculate(currentOperator);
+            }
+            
+            result = Math.Abs(result);
+            currentNumber = ""; 
+            resultTextBox.Text = Convert.ToString(result);
+            currentOperator = "";
         }
     }
 }

@@ -30,25 +30,25 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
         
-            <Button Grid.Row="0" Grid.Column="0" Margin="5px" Content="("/>
-            <Button Grid.Row="0" Grid.Column="1" Margin="5px" Content=")"/>
-            <Button Grid.Row="0" Grid.Column="2" Margin="5px" Content="%"/>
+            <Button Grid.Row="0" Grid.Column="0" Margin="5px" Content="|x|" Click="AbsButton_Click"/>
+            <Button Grid.Row="0" Grid.Column="1" Margin="5px" Content="x²" Click="PowButton_Click"/>
+            <Button Grid.Row="0" Grid.Column="2" Margin="5px" Content="√" Click="SqrButton_Click"/>
             <Button Grid.Row="0" Grid.Column="3" Margin="5px" Content="C" Click="ClearButton_Click"/>
             <Button Grid.Row="1" Grid.Column="0" Margin="5px" Content="7" Click="NumberButton_Click"/>
             <Button Grid.Row="1" Grid.Column="1" Margin="5px" Content="8" Click="NumberButton_Click"/>
             <Button Grid.Row="1" Grid.Column="2" Margin="5px" Content="9" Click="NumberButton_Click"/>
-            <Button Grid.Row="1" Grid.Column="3" Margin="5px" Content="/" />
+            <Button Grid.Row="1" Grid.Column="3" Margin="5px" Content="/" Click="DvdButton_Click"/>
             <Button Grid.Row="2" Grid.Column="0" Margin="5px" Content="4" Click="NumberButton_Click"/>
             <Button Grid.Row="2" Grid.Column="1" Margin="5px" Content="5" Click="NumberButton_Click"/>
             <Button Grid.Row="2" Grid.Column="2" Margin="5px" Content="6" Click="NumberButton_Click"/>
-            <Button Grid.Row="2" Grid.Column="3" Margin="5px" Content="*" />
+            <Button Grid.Row="2" Grid.Column="3" Margin="5px" Content="*" Click="MltpButton_Click"/>
             <Button Grid.Row="3" Grid.Column="0" Margin="5px" Content="1" Click="NumberButton_Click"/>
             <Button Grid.Row="3" Grid.Column="1" Margin="5px" Content="2" Click="NumberButton_Click"/>
             <Button Grid.Row="3" Grid.Column="2" Margin="5px" Content="3" Click="NumberButton_Click"/>
             <Button Grid.Row="3" Grid.Column="3" Margin="5px" Content="-" Click="SubButton_Click"/>
             <Button Grid.Row="4" Grid.Column="0" Margin="5px" Content="," Click="NumberButton_Click"/>
             <Button Grid.Row="4" Grid.Column="1" Margin="5px" Content="0" Click="NumberButton_Click"/>
-            <Button Grid.Row="4" Grid.Column="2" Margin="5px" Content="=" />
+            <Button Grid.Row="4" Grid.Column="2" Margin="5px" Content="=" Click="ResultButton_Click"/>
             <Button Grid.Row="4" Grid.Column="3" Margin="5px" Content="+" Click="SumButton_Click"/>
             
         </Grid>
