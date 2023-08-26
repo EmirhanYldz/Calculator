@@ -21,6 +21,9 @@ namespace Calculator
     public partial class MainWindow : Window
     {
         private string currentNumber = "";
+        private string currentOperator = "";
+        private double result = 0;
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -31,6 +34,38 @@ namespace Calculator
             Button clickedButton = (Button)sender;
             currentNumber += clickedButton.Content.ToString();
             resultTextBox.Text = currentNumber;
+        }
+
+
+        private void ClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            currentNumber = "";
+            currentOperator = "";
+            result = 0;
+            resultTextBox.Text = "";
+        }
+
+        private void SumButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentNumber.Equals(""))
+            {
+                return;
+            }
+            result += Convert.ToDouble(currentNumber);
+            currentNumber = ""; 
+            resultTextBox.Text = Convert.ToString(result);
+        }
+
+
+        private void SubButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentNumber.Equals(""))
+            {
+                return;
+            }
+            result -= Convert.ToDouble(currentNumber);
+            currentNumber = ""; 
+            resultTextBox.Text = Convert.ToString(result);
         }
     }
 }
